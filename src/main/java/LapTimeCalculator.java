@@ -2,7 +2,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-public class LapTimeCalculate {
+public class LapTimeCalculator {
 
     public LinkedHashMap<String, List<String>> calculate(Map<String, String> start, Map<String, String> end) {
         Map<String, String> lapTime = new HashMap<>(end);
