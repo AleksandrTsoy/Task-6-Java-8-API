@@ -3,10 +3,8 @@ import java.io.IOException;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        DAO dao = new DAO();
-        LapTimeCalculator calculate = new LapTimeCalculator();
-        Formatter formatter = new Formatter();
-        StringBuilder result = formatter.formatter(calculate.calculate(dao.startLapDAO(), dao.endLapDAO()), dao.abbreviationsDAO());
-        System.out.println(result);
+        RacerTable racers = new RacerTable();
+        RacerTableFormatter racerTable = new RacerTableFormatter();
+        System.out.println(racerTable.racerTableFormatter(racers.racerListCreate()));
     }
 }
