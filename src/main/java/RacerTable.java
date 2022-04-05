@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -8,13 +9,13 @@ import static java.util.stream.Collectors.toMap;
 
 public class RacerTable {
 
-    public List<Racer> racerListCreate() throws IOException {
-        Stream<String> start = new DAO("start.log").fileReader();
-        Stream<String> end = new DAO("end.log").fileReader();
-        Stream<String> abbreviations = new DAO("abbreviations.txt").fileReader();
-        Map<String, String> startLap = start.distinct().collect(toMap((p) -> p.substring(0, 3), (p) -> p.substring(14)));
-        Map<String, String> endLap = end.distinct().collect(toMap((p) -> p.substring(0, 3), (p) -> p.substring(14)));
-        Map<String, List<String>> abbreviationsMap = abbreviations.distinct().collect(toMap(
+    public List<Racer> racerListCreate() throws IOException, URISyntaxException {
+        Stream<String> start = new FileReader().fileReader("start.log").stream();
+        Stream<String> end = new FileReader().fileReader("end.log").stream();
+        Stream<String> abbreviations = new FileReader().fileReader("abbreviations.txt").stream();
+        Map<String, String> startLap = start.collect(toMap((p) -> p.substring(0, 3), (p) -> p.substring(14)));
+        Map<String, String> endLap = end.collect(toMap((p) -> p.substring(0, 3), (p) -> p.substring(14)));
+        Map<String, List<String>> abbreviationsMap = abbreviations.collect(toMap(
                 (p) -> p.substring(0, 3),
                 (p) -> Arrays.stream(p.substring(4).split("_")).toList()));
         Map<String, List<String>> racerMap = new HashMap<>(abbreviationsMap);

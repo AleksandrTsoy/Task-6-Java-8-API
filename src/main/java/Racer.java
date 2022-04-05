@@ -1,18 +1,20 @@
+import java.util.Objects;
+
 public class Racer {
-    private final String abbreviations;
+    private final String abbreviation;
     private final String pilotName;
     private final String team;
     private String lapTime;
 
-    public Racer(String abbreviations, String pilotName, String team, String lapTime) {
-        this.abbreviations = abbreviations;
+    public Racer(String abbreviation, String pilotName, String team, String lapTime) {
+        this.abbreviation = abbreviation;
         this.pilotName = pilotName;
         this.team = team;
         this.lapTime = lapTime;
     }
 
-    public String getAbbreviations() {
-        return abbreviations;
+    public String getAbbreviation() {
+        return abbreviation;
     }
 
     public String getPilotName() {
@@ -27,4 +29,26 @@ public class Racer {
         return lapTime;
     }
 
+    @Override
+    public String toString() {
+        return "Racer{" +
+                "abbreviations='" + abbreviation + '\'' +
+                ", pilotName='" + pilotName + '\'' +
+                ", team='" + team + '\'' +
+                ", lapTime='" + lapTime + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Racer racer = (Racer) o;
+        return abbreviation.equals(racer.abbreviation) && pilotName.equals(racer.pilotName) && team.equals(racer.team) && lapTime.equals(racer.lapTime);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(abbreviation, pilotName, team, lapTime);
+    }
 }

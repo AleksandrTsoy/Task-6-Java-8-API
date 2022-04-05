@@ -21,7 +21,7 @@ public class RacerTableFormatter  {
                 .sorted(Comparator.comparing(Racer::getLapTime))
                 .collect(toList());
         sortedList.forEach((p) -> line(finishTable, count, stringLength).append(String.format("%-3s", ++count + "."))
-                .append(String.format("%-6s|", "(" + p.getAbbreviations() + ")"))
+                .append(String.format("%-6s|", "(" + p.getAbbreviation() + ")"))
                 .append(String.format("%-" + pilotNameLengthMax + "s|", p.getPilotName()))
                 .append(String.format("%-" + pilotTeamLengthMax + "s|", p.getTeam()))
                 .append(String.format("%-" + lapTimeLengthMax + "s", p.getLapTime()) + "\n"));
@@ -34,5 +34,4 @@ public class RacerTableFormatter  {
         }
         return finishTable;
     }
-
 }
