@@ -69,7 +69,7 @@ class RacerTableTest {
 
     @BeforeEach
     public void init() {
-        racerTable = new RacerTable();
+        racerTable = new RacerTable(new FileReader());
     }
 
     @Test
@@ -81,8 +81,8 @@ class RacerTableTest {
 
     @Test
     void testLapTimeCalculate() throws IOException, URISyntaxException {
-        Stream<String> start = new FileReader().fileReader("start.log").stream();
-        Stream<String> end = new FileReader().fileReader("end.log").stream();
+        Stream<String> start = new FileReader().fileReader("start.log");
+        Stream<String> end = new FileReader().fileReader("end.log");
         Map<String, String> startLap = start.collect(toMap((p) -> p.substring(0, 3), (p) -> p.substring(14)));
         Map<String, String> endLap = end.collect(toMap((p) -> p.substring(0, 3), (p) -> p.substring(14)));
         Map<String, String> expected = lapTimeMap();

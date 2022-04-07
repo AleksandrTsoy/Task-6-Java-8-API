@@ -37,7 +37,7 @@ class RacerTableFormatterTest {
     @BeforeEach
     public void init() {
         racerTableFormatter = new RacerTableFormatter();
-        racerTable = new RacerTable();
+        racerTable = new RacerTable(new FileReader());
     }
 
     @Test

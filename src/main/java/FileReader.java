@@ -4,13 +4,14 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
 
 public class FileReader {
 
-    public List<String> fileReader(String fileName) throws IOException, URISyntaxException {
+    public Stream<String> fileReader(String fileName) throws IOException, URISyntaxException {
         Path path = Paths.get(this.getClass().getClassLoader().getResource(fileName).toURI());
-        return Files.lines(path).collect(toList());
+        return Files.lines(path).collect(toList()).stream();
     }
 }

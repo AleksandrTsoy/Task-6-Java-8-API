@@ -2,13 +2,13 @@ import java.util.Objects;
 
 public class Racer {
     private final String abbreviation;
-    private final String pilotName;
+    private final String racerFullName;
     private final String team;
     private String lapTime;
 
-    public Racer(String abbreviation, String pilotName, String team, String lapTime) {
+    public Racer(String abbreviation, String racerFullName, String team, String lapTime) {
         this.abbreviation = abbreviation;
-        this.pilotName = pilotName;
+        this.racerFullName = racerFullName;
         this.team = team;
         this.lapTime = lapTime;
     }
@@ -17,8 +17,8 @@ public class Racer {
         return abbreviation;
     }
 
-    public String getPilotName() {
-        return pilotName;
+    public String getRacerFullName() {
+        return racerFullName;
     }
 
     public String getTeam() {
@@ -33,7 +33,7 @@ public class Racer {
     public String toString() {
         return "Racer{" +
                 "abbreviations='" + abbreviation + '\'' +
-                ", pilotName='" + pilotName + '\'' +
+                ", pilotName='" + racerFullName + '\'' +
                 ", team='" + team + '\'' +
                 ", lapTime='" + lapTime + '\'' +
                 '}';
@@ -44,11 +44,11 @@ public class Racer {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Racer racer = (Racer) o;
-        return abbreviation.equals(racer.abbreviation) && pilotName.equals(racer.pilotName) && team.equals(racer.team) && lapTime.equals(racer.lapTime);
+        return abbreviation.equals(racer.abbreviation) && racerFullName.equals(racer.racerFullName) && team.equals(racer.team) && lapTime.equals(racer.lapTime);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(abbreviation, pilotName, team, lapTime);
+        return Objects.hash(abbreviation, racerFullName, team, lapTime);
     }
 }

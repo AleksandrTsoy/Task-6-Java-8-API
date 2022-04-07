@@ -8,7 +8,7 @@ public class RacerTableFormatter  {
 
     public StringBuilder racerTableFormatter(List<Racer> racerTable) {
         List<Integer> pilotName = new ArrayList<>();
-        racerTable.forEach((p) -> pilotName.add(p.getPilotName().length()));
+        racerTable.forEach((p) -> pilotName.add(p.getRacerFullName().length()));
         int pilotNameLengthMax = pilotName.stream().max(Integer::compareTo).get() + 1;
         List<Integer> pilotTeam = new ArrayList<>();
         racerTable.forEach((p) -> pilotTeam.add(p.getTeam().length()));
@@ -22,7 +22,7 @@ public class RacerTableFormatter  {
                 .collect(toList());
         sortedList.forEach((p) -> line(finishTable, count, stringLength).append(String.format("%-3s", ++count + "."))
                 .append(String.format("%-6s|", "(" + p.getAbbreviation() + ")"))
-                .append(String.format("%-" + pilotNameLengthMax + "s|", p.getPilotName()))
+                .append(String.format("%-" + pilotNameLengthMax + "s|", p.getRacerFullName()))
                 .append(String.format("%-" + pilotTeamLengthMax + "s|", p.getTeam()))
                 .append(String.format("%-" + lapTimeLengthMax + "s", p.getLapTime()) + "\n"));
         return finishTable;
