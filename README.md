@@ -1,0 +1,2 @@
+# Task-6-Java-8-API
+Write an application Formula1. There are 2 log files start.log and end.log that contain start and end data of the best lap for each racer of Formula 1. Data contains only the first 20 minutes that refers to the first stage of the qualification. Top 15 cars are going to the 2 stage. The third file abbreviations.txt contains abbreviation explanations. Your task is to read data from 2 files, order racers by time and print report that shows the top 15 racers and the rest after underline.
